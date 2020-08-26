@@ -1,0 +1,7 @@
+---
+name: default
+title: Integration tests for default
+summary: This InSpec profile contains integration tests for server cookbook
+version: 0.1.0
+supports:
+  - os-family: linux

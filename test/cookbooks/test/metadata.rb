@@ -1,0 +1,5 @@
+name 'test'
+maintainer 'fernandoaleman'
+description 'Testing cookbook for server'
+version '0.1.0'
+depends 'server'
