@@ -102,3 +102,14 @@ control 'default_editor' do
     its('content') { should include 'export VISUAL="vim"' }
   end
 end
+
+control 'env_vars' do
+  title 'Ensure environment variables are created.'
+  impact 1.0
+
+  describe file('/etc/profile.d/server.sh') do
+    it { should exist }
+    its('content') { should include 'export ALPHA="alpha"' }
+    its('content') { should include 'export BRAVO="bravo"' }
+  end
+end

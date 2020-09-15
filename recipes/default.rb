@@ -39,3 +39,9 @@ template '/etc/profile.d/editor.sh' do
               'visual' => node['server']['default_editor'],
             }
 end
+
+template '/etc/profile.d/server.sh' do
+  cookbook 'server'
+  source 'env.sh.erb'
+  variables 'env_vars' => node['server']['env_vars']
+end

@@ -30,5 +30,7 @@ describe 'server::default' do
           }
         )
     end
+
+    it { is_expected.to_not create_if_missing_file('/etc/profile.d/server.sh') }
   end
 end
