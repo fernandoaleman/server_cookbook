@@ -58,3 +58,12 @@ control 'bashrc' do
     its('content') { should include %q(alias ll='ls -alhH --color=auto') }
   end
 end
+
+control 'timezone' do
+  title 'Ensure timezone is set.'
+  impact 1.0
+
+  describe command('date') do
+    its('stdout') { should include 'UTC' }
+  end
+end

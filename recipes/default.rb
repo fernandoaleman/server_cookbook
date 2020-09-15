@@ -14,3 +14,5 @@ node['server']['bash_aliases'].each do |bash_alias, alias_value|
     line "alias #{bash_alias}='#{alias_value}'"
   end
 end
+
+timezone node['server']['timezone']
