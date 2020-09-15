@@ -4,3 +4,4 @@ default['server']['bash_aliases'] = {
   'll' => 'ls -alhH --color=auto',
 }
 default['server']['timezone'] = 'UTC'
+default['server']['history_time_format'] = '%Y-%m-%d_%H:%M:%S'

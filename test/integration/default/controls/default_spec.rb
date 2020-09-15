@@ -67,3 +67,13 @@ control 'timezone' do
     its('stdout') { should include 'UTC' }
   end
 end
+
+control 'history_time_format' do
+  title 'Ensure history time format is set.'
+  impact 1.0
+
+  describe file('/etc/profile.d/history_time_format.sh') do
+    it { should exist }
+    its('content') { should include 'export HISTTIMEFORMAT="%Y-%m-%d_%H:%M:%S"' }
+  end
+end
