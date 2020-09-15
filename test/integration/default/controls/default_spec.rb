@@ -49,3 +49,12 @@ control 'packages' do
     it { should_not be_installed }
   end
 end
+
+control 'bashrc' do
+  title 'Ensure aliases are added to bashrc'
+  impact 1.0
+
+  describe file('/etc/bashrc') do
+    its('content') { should include %q(alias ll='ls -alhH --color=auto') }
+  end
+end
