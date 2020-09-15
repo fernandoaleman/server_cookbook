@@ -5,5 +5,6 @@ describe 'server::default' do
 
   context 'with default attributes' do
     it { is_expected.to install_package('epel-release') }
+    it { is_expected.to install_build_essential('server') }
   end
 end
