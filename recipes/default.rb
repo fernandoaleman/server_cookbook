@@ -30,3 +30,12 @@ package 'openssh-clients'
 node['server']['ssh_known_hosts'].each do |ssh_known_host|
   ssh_known_hosts_entry ssh_known_host
 end
+
+template '/etc/profile.d/editor.sh' do
+  cookbook 'server'
+  source 'env.sh.erb'
+  variables 'env_vars' => {
+              'editor' => node['server']['default_editor'],
+              'visual' => node['server']['default_editor'],
+            }
+end

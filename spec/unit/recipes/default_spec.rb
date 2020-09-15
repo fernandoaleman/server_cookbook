@@ -20,5 +20,15 @@ describe 'server::default' do
     end
 
     it { is_expected.to install_package('openssh-clients') }
+
+    it do
+      is_expected.to create_template('/etc/profile.d/editor.sh')
+        .with_variables(
+          'env_vars' => {
+            'editor' => 'vim',
+            'visual' => 'vim',
+          }
+        )
+    end
   end
 end

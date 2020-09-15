@@ -91,3 +91,14 @@ control 'ssh_known_hosts' do
     its('content') { should include 'github.com' }
   end
 end
+
+control 'default_editor' do
+  title 'Ensure default editor is set.'
+  impact 1.0
+
+  describe file('/etc/profile.d/editor.sh') do
+    it { should exist }
+    its('content') { should include 'export EDITOR="vim"' }
+    its('content') { should include 'export VISUAL="vim"' }
+  end
+end
