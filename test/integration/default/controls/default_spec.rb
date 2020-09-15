@@ -77,3 +77,17 @@ control 'history_time_format' do
     its('content') { should include 'export HISTTIMEFORMAT="%Y-%m-%d_%H:%M:%S"' }
   end
 end
+
+control 'ssh_known_hosts' do
+  title 'Ensure ssh known hosts are added.'
+  impact 1.0
+
+  describe package('openssh-clients') do
+    it { should be_installed }
+  end
+
+  describe file('/etc/ssh/ssh_known_hosts') do
+    it { should exist }
+    its('content') { should include 'github.com' }
+  end
+end

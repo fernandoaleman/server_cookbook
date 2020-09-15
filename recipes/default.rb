@@ -24,3 +24,9 @@ template '/etc/profile.d/history_time_format.sh' do
               'histtimeformat' => node['server']['history_time_format'],
             }
 end
+
+package 'openssh-clients'
+
+node['server']['ssh_known_hosts'].each do |ssh_known_host|
+  ssh_known_hosts_entry ssh_known_host
+end

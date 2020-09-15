@@ -5,3 +5,4 @@ default['server']['bash_aliases'] = {
 }
 default['server']['timezone'] = 'UTC'
 default['server']['history_time_format'] = '%Y-%m-%d_%H:%M:%S'
+default['server']['ssh_known_hosts'] = %w(github.com)

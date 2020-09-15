@@ -18,5 +18,7 @@ describe 'server::default' do
           }
         )
     end
+
+    it { is_expected.to install_package('openssh-clients') }
   end
 end
