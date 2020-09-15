@@ -34,3 +34,18 @@ control 'build_essential' do
     end
   end
 end
+
+control 'packages' do
+  title 'Ensure packages are installed and removed.'
+  impact 1.0
+
+  %w(htop ncdu the_silver_searcher).each do |pkg|
+    describe package(pkg) do
+      it { should be_installed }
+    end
+  end
+
+  describe package('sendmail') do
+    it { should_not be_installed }
+  end
+end
